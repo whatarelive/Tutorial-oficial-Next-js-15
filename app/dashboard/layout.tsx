@@ -1,9 +1,12 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
 
 interface Props {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
- 
+
+// Activar Implementación de prerenderización previa parcial para la ruta de /dashboard.
+export const experimental_ppr = true;
+
 export default function Layout({ children }: Props) {
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
