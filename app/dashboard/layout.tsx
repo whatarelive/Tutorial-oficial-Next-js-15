@@ -5,7 +5,7 @@ interface Props {
 }
 
 // Activar Implementación de prerenderización previa parcial para la ruta de /dashboard.
-export const experimental_ppr = true;
+// export const experimental_ppr = true;
 
 export default function Layout({ children }: Props) {
   return (
