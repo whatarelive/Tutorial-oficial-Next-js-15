@@ -4,6 +4,8 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { signIn, signOut } from '@/auth';
+import { AuthError } from 'next-auth';
 
 const REVALIDATE_ROUTE = '/dashboard/invoices'
 const REDIRECT_ROUTE = '/dashboard/invoices'
@@ -118,5 +120,24 @@ export async function deleteInvoice(id: string) {
             error,
             message: 'Database Error: Failed to Delete Invoice.'
         };
+    }
+}
+
+export async function autheticate(prevState: string | undefined, formData: FormData) {
+    try {
+        await signIn('credentials', formData);
+
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type.toString()) {
+                case 'CredentialsSignIn':
+                    return 'Invalid credentials.';
+            
+                default:
+                    return 'Something went wrong';
+            }
+        }
+
+        throw error;
     }
 }
