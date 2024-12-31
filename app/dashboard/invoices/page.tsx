@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchInvoicesPages } from '@/app/lib/data';
 import { CreateInvoice } from '@/app/ui/invoices/buttons';
@@ -13,6 +14,10 @@ interface Props {
     page: string;
   }>
 }
+ 
+export const metadata: Metadata = {
+  title: 'Invoices',
+};
 
 export default async function InvoicesPage({ searchParams }: Props) {
   const searchParam = await searchParams;
