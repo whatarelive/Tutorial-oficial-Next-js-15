@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "ignorePatterns": [
+    "react/no-unescaped-entities",
+    "@typescript-eslint/no-unused-vars"
+  ]
+}

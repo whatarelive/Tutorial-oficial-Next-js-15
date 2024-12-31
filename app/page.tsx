@@ -20,7 +20,7 @@ export default function Page() {
             <div className={styles.shape}/>
 
             <h1 className="text-blue-500 text-2xl font-semibold">
-              I'm blue!
+              I&aposm blue!
             </h1>
           </div>
           
